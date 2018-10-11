@@ -1,0 +1,42 @@
+<h1>{{users.username}}</h1>
+
+<!-- Posts -->
+<div class="lead">
+  <h1>Posts</h1>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <ul>
+        {{#each posts}}
+        <li class="list-group-item">
+          <div class="lead">
+            <a href="/posts/{{this._id}}" class="lead">{{this.title}}</a>
+          </div>
+          <a href="{{this.url}}" target="_blank">{{this.url}}<a>
+            <div class="text-right">
+              <a href="/n/{{this.subreddit}}">{{this.subreddit}}</a>
+            </div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Comments -->
+<div class="lead">
+  <h1>Comments</h1>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <ul>
+        {{#each comments}}
+        <li class="list-group-item">
+          <div class="lead">
+            <a href="/posts/{{this.postId}}" class="lead">Post</a>
+          </div>
+          <p>{{this.content}}</p>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

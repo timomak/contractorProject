@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <a href="https://{{post.url}}" class="lead">{{post.title}}
+      <div class="text-right">
+        <a href="/users/{{post.authorUsername}}">{{post.authorUsername}}</a>
+      </div>
+    </a>
+    <p>{{post.summary}}</p>
+  </div>
+</div>
+<form action="/posts/{{post._id}}/comments" method="post">
+  <input class='form-control' name="content" placeholder="Comment"></input>
+  <div class="text-right">
+    <button type="submit">Save</button>
+  </div>
+</form>
+</br>
+<ul>
+  {{#each post.comments}}
+  <li class="list-group-item">
+    <div class="lead">
+      <a href="/users/{{this.authorUsername}}" class="lead">{{this.authorUsername}}</a>
+    </div>
+    <p>{{this.content}}</p>
+  </li>
+  {{/each}}
+</ul>
